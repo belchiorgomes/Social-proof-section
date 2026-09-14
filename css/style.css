@@ -1,0 +1,36 @@
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content;
+    grid-template-areas: "header star" "testimonial testimonial";
+  }
+}
+.container {
+  background-color: hsl(0, 0%, 100%);
+  padding: 1.8rem;
+}
+.container--header {
+  grid-area: header;
+}
+.container--header h1 {
+  color: hsl(300, 43%, 22%);
+}
+.container--header p {
+  color: hsl(303, 10%, 53%);
+}
+.container--star {
+  grid-area: star;
+}
+.container--testimonial {
+  grid-area: testimonial;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,64 @@
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "League Spartan", sans-serif;
+}
+
+// ## Colors
+
+// ### Primary
+
+$Very-Dark: hsl(300, 43%, 22%);
+$Soft-Pink: hsl(333, 80%, 67%);
+
+// ### Neutral
+
+$Dark-Grayish: hsl(303, 10%, 53%);
+$Light-Grayish: hsl(300, 24%, 96%);
+$White: hsl(0, 0%, 100%);
+
+@mixin media($breakpoint){
+    @if $breakpoint == 'mobile'{
+        @media (min-width: 375px){
+            @content;
+        }
+    }@else if $breakpoint == 'desktop'{
+        @media (min-width: 1024px){
+            @content;
+        }
+    }
+}
+
+.container{
+    @include media('desktop'){
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: min-content;
+        grid-template-areas: 'header star'
+                             'testimonial testimonial';
+    }
+
+    background-color: $White;
+    padding: 1.8rem;
+
+    &--header{
+        grid-area: header;
+
+        h1{
+            color: $Very-Dark;
+        }
+
+        p{
+            color: $Dark-Grayish;
+        }
+    }
+
+    &--star{
+        grid-area: star;
+    }
+
+    &--testimonial{
+        grid-area: testimonial;
+    }
+}
