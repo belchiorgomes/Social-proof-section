@@ -39,6 +39,10 @@ $White: hsl(0, 0%, 100%);
                              'testimonial testimonial';
     }
 
+    // @include media('mobile'){
+    //     width: 375px;
+    // }
+
     background-color: $White;
     padding: 1.8rem;
 
@@ -47,15 +51,39 @@ $White: hsl(0, 0%, 100%);
 
         h1{
             color: $Very-Dark;
+            width: 70%;
+            text-align: center;
+            margin: 0 auto;
+
+            @include media('desktop'){
+                width: 100%;
+                margin: 0;
+                text-align: start;
+            }
         }
 
         p{
             color: $Dark-Grayish;
+            margin-block: 1.3rem;
+            line-height: 1.3rem;
+            text-align: center;
         }
     }
 
     &--star{
         grid-area: star;
+
+        &--star-box{
+            margin-block-end: 1.3rem;
+            padding: 1.3rem;
+            border-radius: 1rem;
+            background-color: $Light-Grayish;
+
+            p{
+                color: $Very-Dark;
+                font-weight: bolder;
+            }
+        }
     }
 
     &--testimonial{

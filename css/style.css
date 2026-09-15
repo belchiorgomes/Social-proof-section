@@ -22,12 +22,35 @@
 }
 .container--header h1 {
   color: hsl(300, 43%, 22%);
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+}
+@media (min-width: 1024px) {
+  .container--header h1 {
+    width: 100%;
+    margin: 0;
+    text-align: start;
+  }
 }
 .container--header p {
   color: hsl(303, 10%, 53%);
+  margin-block: 1.3rem;
+  line-height: 1.3rem;
+  text-align: center;
 }
 .container--star {
   grid-area: star;
+}
+.container--star--star-box {
+  margin-block-end: 1.3rem;
+  padding: 1.3rem;
+  border-radius: 1rem;
+  background-color: hsl(300, 24%, 96%);
+}
+.container--star--star-box p {
+  color: hsl(300, 43%, 22%);
+  font-weight: bolder;
 }
 .container--testimonial {
   grid-area: testimonial;
