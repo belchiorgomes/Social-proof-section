@@ -18,6 +18,10 @@ $Dark-Grayish: hsl(303, 10%, 53%);
 $Light-Grayish: hsl(300, 24%, 96%);
 $White: hsl(0, 0%, 100%);
 
+$caminho-img: "../images/";
+$star: "icon-star.svg";
+$star-size: 1.05rem;
+
 @mixin media($breakpoint){
     @if $breakpoint == 'mobile'{
         @media (min-width: 375px){
@@ -78,6 +82,19 @@ $White: hsl(0, 0%, 100%);
             padding: 1.3rem;
             border-radius: 1rem;
             background-color: $Light-Grayish;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+
+            .star-content{
+                width: $star-size * 5.8;
+                height: $star-size;
+                background-image: url("#{$caminho-img}#{$star}");
+                background-repeat: space;
+                background-size: $star-size $star-size;
+            }
 
             p{
                 color: $Very-Dark;
@@ -88,5 +105,32 @@ $White: hsl(0, 0%, 100%);
 
     &--testimonial{
         grid-area: testimonial;
+        display: flex;
+        flex-direction: column;
+        // flex-wrap: wrap;
+        gap: 1.3rem;
+
+        &--testimonial-box{
+            background-color: $Very-Dark;
+            padding: 1.3rem;
+
+            .user{
+                display: flex;
+                align-items: center;
+                gap: 1.3rem;
+                .img-content{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    overflow: hidden;
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
     }
 }
