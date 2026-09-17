@@ -29,6 +29,10 @@ $margin: 0, 30px, 80px;
         @media (min-width: 375px){
             @content;
         }
+    }@else if $breakpoint == 'tablet'{
+        @media (min-width: 768px){
+            @content;
+        }
     }@else if $breakpoint == 'desktop'{
         @media (min-width: 1440px){
             @content;
@@ -57,6 +61,9 @@ $margin: 0, 30px, 80px;
 
     &--header{
         grid-area: header;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         h1{
             color: $Very-Dark;
@@ -88,13 +95,19 @@ $margin: 0, 30px, 80px;
         display: flex;
         flex-direction: column;
 
+        // @include media('tablet'){
+        //     flex-direction: row;
+        //     justify-content: center;
+        //     gap: .7rem;
+        // }
+
         @include media('desktop'){
-            align-items: flex-end;
+            margin-left: 10rem;
         }
 
         &--star-box{
+            width: auto;
             margin-block-end: 1.3rem;
-            // margin-inline-start: 3rem;
             padding: 1.3rem;
             border-radius: 1rem;
             background-color: $Light-Grayish;
@@ -137,11 +150,25 @@ $margin: 0, 30px, 80px;
         flex-direction: column;
         // flex-wrap: wrap;
         gap: 1.3rem;
+        margin-block: 1.3rem;
+
+        @include media('desktop'){
+            flex-direction: row;
+        }
 
         &--testimonial-box{
             background-color: $Very-Dark;
             padding: 1.3rem;
             border-radius: 1rem;
+            height: fit-content;
+
+            @include media('desktop'){
+                @for $i from 1 through length($margin){
+                    &:nth-child(#{$i}){
+                        margin: nth($margin, $i) 0;
+                    }
+                }
+            }
 
             .user{
                 display: flex;
