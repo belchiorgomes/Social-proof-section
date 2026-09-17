@@ -5,10 +5,12 @@
   font-family: "League Spartan", sans-serif;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1440px) {
   .container {
+    width: 80%;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: min-content;
     grid-template-areas: "header star" "testimonial testimonial";
   }
@@ -26,9 +28,9 @@
   text-align: center;
   margin: 0 auto;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1440px) {
   .container--header h1 {
-    width: 100%;
+    width: 7em;
     margin: 0;
     text-align: start;
   }
@@ -39,8 +41,20 @@
   line-height: 1.3rem;
   text-align: center;
 }
+@media (min-width: 1440px) {
+  .container--header p {
+    text-align: start;
+  }
+}
 .container--star {
   grid-area: star;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1440px) {
+  .container--star {
+    align-items: flex-end;
+  }
 }
 .container--star--star-box {
   margin-block-end: 1.3rem;
@@ -52,6 +66,22 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
+@media (min-width: 1440px) {
+  .container--star--star-box {
+    flex-direction: row;
+    width: fit-content;
+    max-width: 100%;
+  }
+  .container--star--star-box:nth-child(1) {
+    margin: 12px 0;
+  }
+  .container--star--star-box:nth-child(2) {
+    margin: 12px 30px;
+  }
+  .container--star--star-box:nth-child(3) {
+    margin: 12px 80px;
+  }
 }
 .container--star--star-box .star-content {
   width: 6.09rem;
@@ -73,11 +103,13 @@
 .container--testimonial--testimonial-box {
   background-color: hsl(300, 43%, 22%);
   padding: 1.3rem;
+  border-radius: 1rem;
 }
 .container--testimonial--testimonial-box .user {
   display: flex;
   align-items: center;
   gap: 1.3rem;
+  margin-block-end: 1rem;
 }
 .container--testimonial--testimonial-box .user .img-content {
   width: 50px;
@@ -89,6 +121,19 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.container--testimonial--testimonial-box .user .title {
+  line-height: 1.2;
+}
+.container--testimonial--testimonial-box .user .title h3 {
+  color: hsl(0, 0%, 100%);
+}
+.container--testimonial--testimonial-box .user .title h4 {
+  color: hsl(333, 80%, 67%);
+}
+.container--testimonial--testimonial-box .message p {
+  color: hsl(0, 0%, 100%);
+  line-height: 1.2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

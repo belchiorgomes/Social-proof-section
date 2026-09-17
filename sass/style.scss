@@ -22,13 +22,15 @@ $caminho-img: "../images/";
 $star: "icon-star.svg";
 $star-size: 1.05rem;
 
+$margin: 0, 30px, 80px;
+
 @mixin media($breakpoint){
     @if $breakpoint == 'mobile'{
         @media (min-width: 375px){
             @content;
         }
     }@else if $breakpoint == 'desktop'{
-        @media (min-width: 1024px){
+        @media (min-width: 1440px){
             @content;
         }
     }
@@ -36,8 +38,11 @@ $star-size: 1.05rem;
 
 .container{
     @include media('desktop'){
+        width: 80%;
+        margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        // grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 2fr;
         grid-template-rows: min-content;
         grid-template-areas: 'header star'
                              'testimonial testimonial';
@@ -60,7 +65,7 @@ $star-size: 1.05rem;
             margin: 0 auto;
 
             @include media('desktop'){
-                width: 100%;
+                width: 7em;
                 margin: 0;
                 text-align: start;
             }
@@ -71,14 +76,25 @@ $star-size: 1.05rem;
             margin-block: 1.3rem;
             line-height: 1.3rem;
             text-align: center;
+
+            @include media('desktop'){
+                text-align: start;
+            }
         }
     }
 
     &--star{
         grid-area: star;
+        display: flex;
+        flex-direction: column;
+
+        @include media('desktop'){
+            align-items: flex-end;
+        }
 
         &--star-box{
             margin-block-end: 1.3rem;
+            // margin-inline-start: 3rem;
             padding: 1.3rem;
             border-radius: 1rem;
             background-color: $Light-Grayish;
@@ -87,6 +103,18 @@ $star-size: 1.05rem;
             justify-content: center;
             align-items: center;
             gap: 1rem;
+
+            @include media('desktop'){
+                flex-direction: row;
+                width: fit-content;
+                max-width: 100%;
+
+                @for $i from 1 through length($margin){
+                    &:nth-child(#{$i}){
+                        margin: 12px nth($margin, $i);
+                    }
+                }
+            }
 
             .star-content{
                 width: $star-size * 5.8;
@@ -113,11 +141,14 @@ $star-size: 1.05rem;
         &--testimonial-box{
             background-color: $Very-Dark;
             padding: 1.3rem;
+            border-radius: 1rem;
 
             .user{
                 display: flex;
                 align-items: center;
                 gap: 1.3rem;
+                margin-block-end: 1rem;
+
                 .img-content{
                     width: 50px;
                     height: 50px;
@@ -129,6 +160,25 @@ $star-size: 1.05rem;
                         height: 100%;
                         object-fit: cover;
                     }
+                }
+
+                .title{
+                    line-height: 1.2;
+
+                    h3{
+                        color: $White;
+                    }
+
+                    h4{
+                        color: $Soft-Pink;
+                    }
+                }
+            }
+
+            .message{
+                p{
+                    color: $White;
+                    line-height: 1.2rem;
                 }
             }
         }
